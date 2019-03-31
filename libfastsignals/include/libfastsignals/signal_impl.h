@@ -13,9 +13,9 @@ class signal_impl
 public:
     uint64_t add(packed_function fn);
 
-    void remove(uint64_t id) noexcept;
+    void remove(uint64_t id);
 
-    void remove_all() noexcept;
+    void remove_all();
 
     size_t count() const noexcept;
 

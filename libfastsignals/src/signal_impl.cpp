@@ -25,7 +25,7 @@ uint64_t signal_impl::add(packed_function fn)
     return m_nextId++;
 }
 
-void signal_impl::remove(uint64_t id) noexcept
+void signal_impl::remove(uint64_t id)
 {
     std::lock_guard lock(m_mutex);
 
@@ -39,7 +39,7 @@ void signal_impl::remove(uint64_t id) noexcept
     }
 }
 
-void signal_impl::remove_all() noexcept
+void signal_impl::remove_all()
 {
     std::lock_guard lock(m_mutex);
     m_functions.clear();
@@ -77,7 +77,6 @@ bool signal_impl::get_next_slot(packed_function& slot, size_t& expectedIndex, ui
 size_t signal_impl::count() const noexcept
 {
     std::lock_guard lock(m_mutex);
-
     return m_functions.size();
 }
 
