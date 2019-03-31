@@ -28,7 +28,6 @@ public:
         while (!try_lock())
         {
             /* do nothing */;
-            std::this_thread::yield();
         }
     }
 
@@ -76,8 +75,10 @@ public:
 #endif // ENABLE_YIELD
 
 private:
+#if ENABLE_YIELD == 1
     std::atomic<std::thread::id> m_owner_thread_id = std::thread::id();
     std::uint32_t m_recursive_counter = 0;
+#endif
     std::atomic_flag m_busy = ATOMIC_FLAG_INIT;
 };
 
