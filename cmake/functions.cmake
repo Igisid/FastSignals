@@ -9,7 +9,7 @@ function(custom_enable_cxx17 TARGET)
     # Включаем компоновку с libc++, libc++experimental и pthread для Clang
     elseif (CMAKE_CXX_COMPILER_ID MATCHES "Clang")
 		set_target_properties(${TARGET} PROPERTIES COMPILE_FLAGS "-stdlib=libc++ -pthread")
-        target_link_libraries(${TARGET} c++experimental pthread)
+        target_link_libraries(${TARGET} pthread)
     endif()
 endfunction(custom_enable_cxx17)
 
