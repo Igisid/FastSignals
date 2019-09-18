@@ -9,7 +9,7 @@ auto get_advanced_connection_impl(const advanced_connection& connection) noexcep
 {
 	struct advanced_connection_impl_getter : private advanced_connection
 	{
-		advanced_connection_impl_getter(const advanced_connection& connection) noexcept
+		explicit advanced_connection_impl_getter(const advanced_connection& connection) noexcept
 			: advanced_connection(connection)
 		{
 		}
