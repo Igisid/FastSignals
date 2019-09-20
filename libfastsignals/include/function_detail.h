@@ -44,8 +44,6 @@ using callable_copy_t = std::conditional_t<std::is_function_v<std::remove_refere
 class base_function_proxy
 {
 public:
-	base_function_proxy(const base_function_proxy&) = delete;
-	base_function_proxy& operator=(const base_function_proxy&) = delete;
 	virtual ~base_function_proxy() = default;
 	virtual base_function_proxy* clone(void* buffer) const = 0;
 	virtual base_function_proxy* move(void* buffer) noexcept = 0;
